@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.main {
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.field {
+    background-image: url("field.jpg");
+    border-radius: 20px;
+    margin-right: 50px;
+    position: relative;
+}
+
+.fish {
+    position: absolute;
+}
+
+.game {
+    display: flex;
+
+}
+
+.records {
+    border-radius: 20px;
+    padding-left: 50px;
+    width: 200px;
+    border: solid blue 2px;
+}
+
+img {
+    width: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+.back {
+    transform: scaleX(-1);
+}

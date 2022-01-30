@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Рыбки</title>
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <div v-if="!user.name">
+                <input v-model="name" type="text">
+                <button @click="createUser">Добавить имя</button>
+            </div>
+            <div v-if="user.name">
+                <h2>Моё имя: {{user.name}} - {{scores}}</h2>
+                <div>{{seconds}}</div>
+                <div>
+                    <button v-if="!end" @click="start">Начать игру</button>
+                </div>
+                <div class="game">
+                    <div class="field" :style="{width: field.width, height: field.height}">
+                        <ul class="for-fishes">
+                            <li :style="{left: fish.left, top: fish.top}" class="fish" v-for="(fish, index) in fishArr" :key="index" @click="catchFish(index)">
+                                <img :class="{'back' : fish.back, 'backTop': fish.backTop}" :src="fish.photo" alt="fish">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="records" v-if="end">
+                        <h2>Мои рекорды</h2>
+                        <ul>
+                            <li v-for="item in records">{{item.user}} - {{item.score}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
